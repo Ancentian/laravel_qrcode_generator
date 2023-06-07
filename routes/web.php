@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\payments\mpesa\MPESAController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,8 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/', 'index')->name('products');
     Route::get('/products/create', 'create')->name('createProduct');
     Route::post('/store', 'store');
+    Route::get('/mpesa', 'mpesa')->name('mpesa');
 });
+
+Route::post('/get-token', [MPESAController::class, 'getAccessToken']);
+
