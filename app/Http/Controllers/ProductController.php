@@ -34,4 +34,10 @@ class ProductController extends Controller
     {
         return Product::whereproductCode($number)->exists();
     }
+
+    public function mpesa()
+    {
+        return view('mpesa.index');
+    }
+
 }
